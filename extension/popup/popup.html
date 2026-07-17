@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Transvela</title>
+<link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">Transvela</div>
+    <button type="button" class="lang-toggle" id="langToggle" data-i18n-toggle></button>
+  </div>
+
+  <div class="card" id="createCard">
+    <h1 data-i18n="create.title"></h1>
+
+    <form id="createForm">
+      <label for="urlInput" data-i18n="create.urlLabel"></label>
+      <input type="url" id="urlInput" data-i18n-placeholder="create.urlPlaceholder" required />
+
+      <label for="passwordInput" data-i18n="create.passwordLabel"></label>
+      <input type="text" id="passwordInput" data-i18n-placeholder="create.passwordPlaceholder" required />
+
+      <label for="hintInput" data-i18n="create.hintLabel"></label>
+      <input type="text" id="hintInput" data-i18n-placeholder="create.hintPlaceholder" />
+
+      <div class="disclaimer" data-i18n="create.disclaimer"></div>
+
+      <div class="error-text" id="createError"></div>
+
+      <button type="submit" class="primary" id="submitBtn" data-i18n="create.submitBtn"></button>
+    </form>
+
+    <div class="result-box hidden" id="resultBox">
+      <h1 data-i18n="create.resultTitle"></h1>
+      <div class="disclaimer" data-i18n="create.resultHint"></div>
+      <div class="short-link-display">
+        <span id="shortLinkText"></span>
+      </div>
+      <button class="primary" id="copyBtn" data-i18n="create.copyBtn"></button>
+      <button class="secondary" id="createAnotherBtn" data-i18n="create.createAnother"></button>
+    </div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="crypto.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

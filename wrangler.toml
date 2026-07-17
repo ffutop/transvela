@@ -5,4 +5,4 @@ pages_build_output_dir = "public"
 [[d1_databases]]
 binding = "DB"
 database_name = "transvela-db"
-database_id = "REPLACE_WITH_REAL_DATABASE_ID_AFTER_WRANGLER_D1_CREATE"
+database_id = "c7ccbd13-1907-4495-a4af-f5c0053513a2"
