@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Transvela</title>
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div>
+      <div class="brand">Transvela</div>
+      <div class="tagline" data-i18n="brand.tagline"></div>
+    </div>
+    <button class="lang-toggle" id="langToggle" data-i18n-toggle></button>
+  </div>
+
+  <div class="card hidden" id="verifyCard">
+    <h1 data-i18n="verify.title"></h1>
+
+    <div class="hint-box hidden" id="hintBox">
+      <span data-i18n="verify.hintPrefix"></span><span id="hintText"></span>
+    </div>
+
+    <form id="verifyForm">
+      <label for="passwordInput" data-i18n="verify.passwordLabel"></label>
+      <input type="password" id="passwordInput" data-i18n-placeholder="verify.passwordPlaceholder" required autofocus />
+
+      <div class="error-text" id="verifyError"></div>
+
+      <button type="submit" class="primary" id="verifySubmitBtn" data-i18n="verify.submitBtn"></button>
+    </form>
+    <div class="status-text hidden" id="statusText"></div>
+  </div>
+
+  <div class="card hidden" id="notFoundCard">
+    <h1 data-i18n="notFound.title"></h1>
+    <p data-i18n="notFound.message"></p>
+    <a class="primary" href="/" data-i18n="notFound.backLink"></a>
+  </div>
+
+  <script src="/assets/js/i18n.js"></script>
+  <script src="/assets/js/crypto.js"></script>
+  <script src="/assets/js/verify.js"></script>
+</body>
+</html>

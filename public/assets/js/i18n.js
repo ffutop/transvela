@@ -1,0 +1,155 @@
+(function () {
+  const DICT = {
+    zh: {
+      brand: { name: 'Transvela', tagline: '给一条链接，多一步确认' },
+      nav: { langToggle: 'EN' },
+      hero: {
+        headline: '分享链接前，先加一层郑重',
+        subheadline:
+          '把任意链接包装成需要密码才能打开的专属链接。它不是保险箱，只是给随手转发的人多一次提醒。',
+        feature1: '免注册，三步完成',
+        feature2: '密码只留在你的浏览器里',
+        feature3: '中英双语，随手可用',
+        cta: '立即创建专属链接',
+        stepsTitle: '怎么用',
+        step1: '粘贴你要分享的原始链接',
+        step2: '设置密码，可选一句提示词',
+        step3: '复制生成的短链接，发给对方'
+      },
+      create: {
+        title: '创建专属口令链接',
+        urlLabel: '原始链接',
+        urlPlaceholder: '粘贴你要分享的链接，例如 https://...',
+        passwordLabel: '设置密码',
+        passwordPlaceholder: '对方需要输入这个密码才能打开链接',
+        hintLabel: '密码提示（可选）',
+        hintPlaceholder: '方便对方或你自己回忆密码的一句话',
+        disclaimer: '这是一个门禁提醒，无法防止密码正确后的转发。请不要用于传播违法或侵权内容。',
+        submitBtn: '生成专属链接',
+        submitting: '正在生成…',
+        resultTitle: '链接已生成',
+        resultHint: '请自行妥善保存密码，我们不存储密码，无法为你找回。',
+        copyBtn: '复制链接',
+        copied: '已复制',
+        createAnother: '再创建一条',
+        errUrl: '请输入一个有效的链接（以 http:// 或 https:// 开头）',
+        errPassword: '请设置密码',
+        errServer: '生成失败，请稍后重试'
+      },
+      verify: {
+        title: '这条链接需要密码',
+        hintPrefix: '提示：',
+        passwordLabel: '请输入密码',
+        passwordPlaceholder: '密码',
+        submitBtn: '确认',
+        verifying: '正在验证…',
+        wrongPassword: '口令不正确，请重试',
+        invalidTarget: '目标链接不合法，已阻止跳转',
+        redirecting: '验证成功，正在跳转…'
+      },
+      notFound: {
+        title: '链接不存在或已失效',
+        message: '请向分享者确认链接是否正确，或对方是否已重新生成过。',
+        backLink: '创建我自己的链接'
+      }
+    },
+    en: {
+      brand: { name: 'Transvela', tagline: 'One more step before a link opens' },
+      nav: { langToggle: '中文' },
+      hero: {
+        headline: 'Add a moment of care before your link opens',
+        subheadline:
+          'Wrap any link into one that needs a password to open. It is not a vault — just a gentle reminder for whoever might forward it without thinking.',
+        feature1: 'No sign-up, three steps',
+        feature2: 'Your password never leaves your browser',
+        feature3: 'Bilingual, ready whenever you need it',
+        cta: 'Create your link now',
+        stepsTitle: 'How it works',
+        step1: 'Paste the original link you want to share',
+        step2: 'Set a password, with an optional hint',
+        step3: 'Copy the short link and send it over'
+      },
+      create: {
+        title: 'Create a password-gated link',
+        urlLabel: 'Original link',
+        urlPlaceholder: 'Paste the link you want to share, e.g. https://...',
+        passwordLabel: 'Set a password',
+        passwordPlaceholder: 'The recipient must enter this to open the link',
+        hintLabel: 'Password hint (optional)',
+        hintPlaceholder: 'A short reminder for the recipient or yourself',
+        disclaimer: 'This is a gentle gate, not a security guarantee — it cannot stop the link from being forwarded after the password is entered. Do not use it to distribute illegal or infringing content.',
+        submitBtn: 'Generate link',
+        submitting: 'Generating…',
+        resultTitle: 'Your link is ready',
+        resultHint: 'Please save the password yourself — we do not store it and cannot recover it for you.',
+        copyBtn: 'Copy link',
+        copied: 'Copied',
+        createAnother: 'Create another',
+        errUrl: 'Please enter a valid link (starting with http:// or https://)',
+        errPassword: 'Please set a password',
+        errServer: 'Something went wrong, please try again'
+      },
+      verify: {
+        title: 'This link needs a password',
+        hintPrefix: 'Hint: ',
+        passwordLabel: 'Enter password',
+        passwordPlaceholder: 'Password',
+        submitBtn: 'Continue',
+        verifying: 'Verifying…',
+        wrongPassword: 'Incorrect password, please try again',
+        invalidTarget: 'The target link is invalid, redirect blocked',
+        redirecting: 'Verified, redirecting…'
+      },
+      notFound: {
+        title: 'This link does not exist or has expired',
+        message: 'Please double check with whoever shared it, or ask if it was regenerated.',
+        backLink: 'Create your own link'
+      }
+    }
+  };
+
+  const STORAGE_KEY = 'transvela_lang';
+
+  function detectLang() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved === 'zh' || saved === 'en') return saved;
+    return (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  }
+
+  let currentLang = detectLang();
+
+  function t(key) {
+    const parts = key.split('.');
+    let node = DICT[currentLang];
+    for (const p of parts) {
+      node = node && node[p];
+    }
+    return node == null ? key : node;
+  }
+
+  function setLang(lang) {
+    currentLang = lang === 'zh' ? 'zh' : 'en';
+    localStorage.setItem(STORAGE_KEY, currentLang);
+    applyI18n();
+  }
+
+  function getLang() {
+    return currentLang;
+  }
+
+  function applyI18n() {
+    document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+      el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+    document.querySelectorAll('[data-i18n-toggle]').forEach((el) => {
+      el.textContent = t('nav.langToggle');
+    });
+  }
+
+  window.i18n = { t, setLang, getLang, applyI18n };
+  document.addEventListener('DOMContentLoaded', applyI18n);
+})();
