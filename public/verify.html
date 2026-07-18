@@ -7,16 +7,20 @@
 <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div>
+  <header class="topbar">
+    <a class="brand-lockup" href="/" aria-label="Transvela home">
       <div class="brand">Transvela</div>
       <div class="tagline" data-i18n="brand.tagline"></div>
-    </div>
+    </a>
     <button class="lang-toggle" id="langToggle" data-i18n-toggle></button>
-  </div>
+  </header>
 
-  <div class="card hidden" id="verifyCard">
+  <main class="verify-layout">
+  <section class="card verify-card hidden" id="verifyCard">
+    <div class="veil-mark" aria-hidden="true"><span></span></div>
+    <div class="eyebrow" data-i18n="verify.eyebrow"></div>
     <h1 data-i18n="verify.title"></h1>
+    <p class="card-intro" data-i18n="verify.subtitle"></p>
 
     <div class="hint-box hidden" id="hintBox">
       <span data-i18n="verify.hintPrefix"></span><span id="hintText"></span>
@@ -31,13 +35,14 @@
       <button type="submit" class="primary" id="verifySubmitBtn" data-i18n="verify.submitBtn"></button>
     </form>
     <div class="status-text hidden" id="statusText"></div>
-  </div>
+  </section>
 
-  <div class="card hidden" id="notFoundCard">
+  <section class="card verify-card hidden" id="notFoundCard">
     <h1 data-i18n="notFound.title"></h1>
     <p data-i18n="notFound.message"></p>
     <a class="primary" href="/" data-i18n="notFound.backLink"></a>
-  </div>
+  </section>
+  </main>
 
   <script src="/assets/js/i18n.js"></script>
   <script src="/assets/js/crypto.js"></script>

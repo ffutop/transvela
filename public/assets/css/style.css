@@ -367,3 +367,60 @@ button.secondary:focus-visible {
     letter-spacing: -0.9px;
   }
 }
+
+/* 2026 editorial layout: shared visual language for web creation and reveal. */
+body {
+  padding: 0 24px 40px;
+  background-image: radial-gradient(circle at 12% 18%, rgba(207,170,139,.13), transparent 28%), radial-gradient(circle at 88% 7%, rgba(166,184,190,.12), transparent 24%);
+  background-attachment: fixed;
+}
+.topbar { max-width: 1200px; padding: 24px 0; margin-bottom: 0; }
+.brand-lockup { color: inherit; text-decoration: none; }
+.create-layout { width: 100%; max-width: 1200px; }
+.hero { text-align: left; margin: 32px 0 40px; }
+.eyebrow { margin-bottom: 16px; color: var(--muted-gray); font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.hero-headline { font-size: clamp(36px,8.5vw,52px); line-height: 1.04; letter-spacing: -1.2px; margin-bottom: 20px; }
+.hero-sub { max-width: 500px; margin-bottom: 24px; }
+.hero-features { justify-content: flex-start; }
+.hero-features li { position: relative; background: transparent; padding: 0 0 0 15px; }
+.hero-features li::before { position: absolute; left: 0; top: .55em; width: 5px; height: 5px; border-radius: 50%; background: var(--charcoal-40); content: ""; }
+.hero-cta { margin: 0; }
+.hero-steps { padding: 0; border: 0; }
+.hero-steps ol { padding: 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; list-style: none; counter-reset: steps; }
+.hero-steps li { position: relative; padding-top: 30px; }
+.hero-steps li::before { position: absolute; top: 0; left: 0; color: var(--charcoal-40); font-size: 12px; font-variant-numeric: tabular-nums; counter-increment: steps; content: "0" counter(steps); }
+.card { background: rgba(252,251,248,.62); backdrop-filter: blur(12px); }
+.card h1, .card h2 { font-family: var(--font); font-size: 20px; font-weight: 400; line-height: 1.25; margin: 0 0 20px; color: var(--charcoal); }
+.card-heading { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 26px; }
+.card-heading h2, .card-heading p { margin: 0; }
+.card-heading p, .card-intro { margin-top: 5px; color: var(--muted-gray); font-size: 14px; line-height: 1.5; }
+.step-badge { display: grid; flex: 0 0 32px; width: 32px; height: 32px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--muted-gray); font-size: 11px; }
+input[type="text"], input[type="password"], input[type="url"] { background: rgba(247,244,237,.72); }
+input:hover { border-color: var(--charcoal-40); }
+.verify-layout { display: grid; flex: 1; width: 100%; max-width: 560px; place-items: center; padding: 40px 0 96px; }
+.verify-card > h1 { margin-bottom: 8px; font-size: 28px; font-weight: 600; letter-spacing: -.7px; }
+.verify-card .card-intro { margin: 0 0 24px; }
+.veil-mark { position: relative; width: 52px; height: 52px; margin-bottom: 28px; overflow: hidden; border: 1px solid var(--border); border-radius: 50%; background: var(--charcoal-03); }
+.veil-mark::before, .veil-mark::after, .veil-mark span { position: absolute; top: -8px; width: 1px; height: 68px; background: var(--charcoal-40); content: ""; }
+.veil-mark::before { left: 19px; transform: rotate(9deg); }
+.veil-mark span { left: 26px; transform: rotate(-4deg); }
+.veil-mark::after { left: 33px; transform: rotate(8deg); }
+.site-footer { display: flex; width: 100%; max-width: 1200px; justify-content: center; gap: 8px; padding-top: 32px; color: var(--muted-gray); font-size: 12px; }
+@media (min-width: 900px) {
+  body { padding-inline: 40px; }
+  .create-layout { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(400px,.92fr); gap: clamp(64px,9vw,128px); align-items: center; min-height: calc(100vh - 150px); padding: 36px 0 64px; }
+  .hero { max-width: 600px; margin: 0; }
+  .hero-headline { font-size: 60px; line-height: 1.02; letter-spacing: -1.5px; }
+  .hero-cta { display: none; }
+  .create-card { max-width: 500px; padding: 40px; }
+}
+@media (max-width: 520px) {
+  body { padding-inline: 16px; }
+  .topbar { padding: 18px 0; }
+  .tagline { display: none; }
+  .hero { margin-top: 28px; }
+  .hero-steps ol { grid-template-columns: 1fr; gap: 12px; }
+  .hero-steps li { padding: 0 0 0 34px; }
+  .card { padding: 26px 20px; }
+  .site-footer { flex-wrap: wrap; text-align: center; }
+}

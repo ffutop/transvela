@@ -7,38 +7,46 @@
 <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div>
+  <header class="topbar">
+    <a class="brand-lockup" href="/" aria-label="Transvela home">
       <div class="brand">Transvela</div>
       <div class="tagline" data-i18n="brand.tagline"></div>
-    </div>
+    </a>
     <button class="lang-toggle" id="langToggle" data-i18n-toggle></button>
-  </div>
+  </header>
 
-  <section class="hero">
-    <h1 class="hero-headline" data-i18n="hero.headline"></h1>
-    <p class="hero-sub" data-i18n="hero.subheadline"></p>
+  <main class="create-layout">
+    <section class="hero">
+      <div class="eyebrow" data-i18n="hero.eyebrow"></div>
+      <h1 class="hero-headline" data-i18n="hero.headline"></h1>
+      <p class="hero-sub" data-i18n="hero.subheadline"></p>
 
-    <ul class="hero-features">
-      <li data-i18n="hero.feature1"></li>
-      <li data-i18n="hero.feature2"></li>
-      <li data-i18n="hero.feature3"></li>
-    </ul>
+      <ul class="hero-features">
+        <li data-i18n="hero.feature1"></li>
+        <li data-i18n="hero.feature2"></li>
+        <li data-i18n="hero.feature3"></li>
+      </ul>
 
-    <button type="button" class="primary hero-cta" id="heroCta" data-i18n="hero.cta"></button>
+      <button type="button" class="primary hero-cta" id="heroCta" data-i18n="hero.cta"></button>
 
-    <div class="hero-steps">
-      <div class="hero-steps-title" data-i18n="hero.stepsTitle"></div>
-      <ol>
-        <li data-i18n="hero.step1"></li>
-        <li data-i18n="hero.step2"></li>
-        <li data-i18n="hero.step3"></li>
-      </ol>
-    </div>
-  </section>
+      <div class="hero-steps">
+        <div class="hero-steps-title" data-i18n="hero.stepsTitle"></div>
+        <ol>
+          <li data-i18n="hero.step1"></li>
+          <li data-i18n="hero.step2"></li>
+          <li data-i18n="hero.step3"></li>
+        </ol>
+      </div>
+    </section>
 
-  <div class="card" id="createCard">
-    <h1 data-i18n="create.title"></h1>
+    <section class="card create-card" id="createCard">
+      <div class="card-heading">
+        <span class="step-badge">01</span>
+        <div>
+          <h2 data-i18n="create.title"></h2>
+          <p data-i18n="create.subtitle"></p>
+        </div>
+      </div>
 
     <form id="createForm">
       <label for="urlInput" data-i18n="create.urlLabel"></label>
@@ -58,7 +66,7 @@
     </form>
 
     <div class="result-box hidden" id="resultBox">
-      <h1 data-i18n="create.resultTitle"></h1>
+      <h2 data-i18n="create.resultTitle"></h2>
       <div class="disclaimer" data-i18n="create.resultHint"></div>
       <div class="short-link-display">
         <span id="shortLinkText"></span>
@@ -66,7 +74,14 @@
       <button class="primary" id="copyBtn" data-i18n="create.copyBtn"></button>
       <button class="secondary" id="createAnotherBtn" data-i18n="create.createAnother"></button>
     </div>
-  </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span data-i18n="footer.privacy"></span>
+    <span aria-hidden="true">·</span>
+    <span data-i18n="footer.promise"></span>
+  </footer>
 
   <script src="/assets/js/i18n.js"></script>
   <script src="/assets/js/crypto.js"></script>

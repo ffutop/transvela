@@ -8,12 +8,21 @@
 </head>
 <body>
   <div class="topbar">
-    <div class="brand">Transvela</div>
+    <div>
+      <div class="brand">Transvela</div>
+      <div class="tagline" data-i18n="extension.tagline"></div>
+    </div>
     <button type="button" class="lang-toggle" id="langToggle" data-i18n-toggle></button>
   </div>
 
   <div class="card" id="createCard">
-    <h1 data-i18n="create.title"></h1>
+    <div class="card-heading">
+      <span class="step-badge">01</span>
+      <div>
+        <h1 data-i18n="extension.title"></h1>
+        <p data-i18n="extension.subtitle"></p>
+      </div>
+    </div>
 
     <form id="createForm">
       <label for="urlInput" data-i18n="create.urlLabel"></label>

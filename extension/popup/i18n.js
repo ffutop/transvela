@@ -6,12 +6,13 @@
       brand: { name: 'Transvela', tagline: '给一条链接，多一步确认' },
       nav: { langToggle: 'EN' },
       hero: {
+        eyebrow: '轻量链接门禁',
         headline: '分享链接前，先加一层郑重',
         subheadline:
-          '把任意链接包装成需要密码才能打开的专属链接。它不是保险箱，只是给随手转发的人多一次提醒。',
-        feature1: '免注册，三步完成',
-        feature2: '密码只留在你的浏览器里',
-        feature3: '中英双语，随手可用',
+          '给文档、方案或私人内容加一道口令确认，让它更妥善地到达对的人。',
+        feature1: '无需注册',
+        feature2: '本地处理口令',
+        feature3: '三步完成',
         cta: '立即创建专属链接',
         stepsTitle: '怎么用',
         step1: '粘贴你要分享的原始链接',
@@ -20,6 +21,7 @@
       },
       create: {
         title: '创建专属口令链接',
+        subtitle: '填写链接与口令，即刻生成。',
         urlLabel: '原始链接',
         urlPlaceholder: '粘贴你要分享的链接，例如 https://...',
         passwordLabel: '设置密码',
@@ -39,7 +41,9 @@
         errServer: '生成失败，请稍后重试'
       },
       verify: {
+        eyebrow: '专属内容',
         title: '这条链接需要密码',
+        subtitle: '分享者为内容设置了一道确认，请输入你收到的口令继续。',
         hintPrefix: '提示：',
         passwordLabel: '请输入密码',
         passwordPlaceholder: '密码',
@@ -53,18 +57,25 @@
         title: '链接不存在或已失效',
         message: '请向分享者确认链接是否正确，或对方是否已重新生成过。',
         backLink: '创建我自己的链接'
-      }
+      },
+      extension: {
+        tagline: '为当前页面加一道确认',
+        title: '创建口令链接',
+        subtitle: '当前页面已自动带入，设置口令即可分享。'
+      },
+      footer: { privacy: '无需注册', promise: '原始链接与口令不会以明文保存' }
     },
     en: {
       brand: { name: 'Transvela', tagline: 'One more step before a link opens' },
       nav: { langToggle: '中文' },
       hero: {
+        eyebrow: 'A lightweight link gate',
         headline: 'Add a moment of care before your link opens',
         subheadline:
-          'Wrap any link into one that needs a password to open. It is not a vault — just a gentle reminder for whoever might forward it without thinking.',
-        feature1: 'No sign-up, three steps',
-        feature2: 'Your password never leaves your browser',
-        feature3: 'Bilingual, ready whenever you need it',
+          'Add a password check to a document, proposal, or private link, so it reaches the right person with greater care.',
+        feature1: 'No sign-up',
+        feature2: 'Password handled locally',
+        feature3: 'Ready in three steps',
         cta: 'Create your link now',
         stepsTitle: 'How it works',
         step1: 'Paste the original link you want to share',
@@ -73,6 +84,7 @@
       },
       create: {
         title: 'Create a password-gated link',
+        subtitle: 'Add your link and password. We’ll handle the rest.',
         urlLabel: 'Original link',
         urlPlaceholder: 'Paste the link you want to share, e.g. https://...',
         passwordLabel: 'Set a password',
@@ -92,7 +104,9 @@
         errServer: 'Something went wrong, please try again'
       },
       verify: {
+        eyebrow: 'Shared especially with you',
         title: 'This link needs a password',
+        subtitle: 'The sender added a quick check. Enter the password they shared with you to continue.',
         hintPrefix: 'Hint: ',
         passwordLabel: 'Enter password',
         passwordPlaceholder: 'Password',
@@ -106,7 +120,13 @@
         title: 'This link does not exist or has expired',
         message: 'Please double check with whoever shared it, or ask if it was regenerated.',
         backLink: 'Create your own link'
-      }
+      },
+      extension: {
+        tagline: 'Add a check to this page',
+        title: 'Create a gated link',
+        subtitle: 'This page is ready. Set a password to share it.'
+      },
+      footer: { privacy: 'No sign-up', promise: 'Links and passwords are never stored in plain text' }
     }
   };
 

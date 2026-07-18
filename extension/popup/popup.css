@@ -209,3 +209,13 @@ button.secondary:active {
 .hidden {
   display: none !important;
 }
+
+/* Compact counterpart to the web experience. */
+body { background-image: radial-gradient(circle at 90% 0%, rgba(166,184,190,.14), transparent 34%); }
+.tagline { margin-top: 2px; color: var(--muted-gray); font-size: 11px; }
+.card-heading { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 20px; }
+.card-heading h1, .card-heading p { margin: 0; }
+.card-heading p { margin-top: 4px; color: var(--muted-gray); font-size: 12px; line-height: 1.45; }
+.step-badge { display: grid; flex: 0 0 28px; width: 28px; height: 28px; place-items: center; border: 1px solid var(--border); border-radius: 50%; color: var(--muted-gray); font-size: 10px; }
+input:hover { border-color: var(--charcoal-40); }
+.lang-toggle:focus-visible, .primary:focus-visible, .secondary:focus-visible { outline: none; box-shadow: var(--focus-shadow); }
