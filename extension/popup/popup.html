@@ -15,13 +15,11 @@
     <button type="button" class="lang-toggle" id="langToggle" data-i18n-toggle></button>
   </div>
 
-  <div class="card" id="createCard">
+  <main class="card" id="createCard">
+    <span class="card-tag" data-i18n="create.cardTag"></span>
     <div class="card-heading">
-      <span class="step-badge">01</span>
-      <div>
-        <h1 data-i18n="extension.title"></h1>
-        <p data-i18n="extension.subtitle"></p>
-      </div>
+      <h1 data-i18n="extension.title"></h1>
+      <p data-i18n="extension.subtitle"></p>
     </div>
 
     <form id="createForm">
@@ -29,7 +27,12 @@
       <input type="url" id="urlInput" data-i18n-placeholder="create.urlPlaceholder" required />
 
       <label for="passwordInput" data-i18n="create.passwordLabel"></label>
-      <input type="text" id="passwordInput" data-i18n-placeholder="create.passwordPlaceholder" required />
+      <div class="password-field">
+        <input type="password" id="passwordInput" data-i18n-placeholder="create.passwordPlaceholder" required autocomplete="new-password" />
+        <button type="button" class="password-toggle" id="passwordToggle" data-i18n-aria="create.showPassword" aria-label="Show password">
+          <svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M1.5 10S4.5 4 10 4s8.5 6 8.5 6-3 6-8.5 6-8.5-6-8.5-6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="10" cy="10" r="2.4" stroke="currentColor" stroke-width="1.4"/><line class="eye-slash" x1="2.5" y1="2.5" x2="17.5" y2="17.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+      </div>
 
       <label for="hintInput" data-i18n="create.hintLabel"></label>
       <input type="text" id="hintInput" data-i18n-placeholder="create.hintPlaceholder" />
@@ -41,7 +44,7 @@
       <button type="submit" class="primary" id="submitBtn" data-i18n="create.submitBtn"></button>
     </form>
 
-    <div class="result-box hidden" id="resultBox">
+    <div class="result-box hidden" id="resultBox" aria-live="polite">
       <h1 data-i18n="create.resultTitle"></h1>
       <div class="disclaimer" data-i18n="create.resultHint"></div>
       <div class="short-link-display">
@@ -50,7 +53,7 @@
       <button class="primary" id="copyBtn" data-i18n="create.copyBtn"></button>
       <button class="secondary" id="createAnotherBtn" data-i18n="create.createAnother"></button>
     </div>
-  </div>
+  </main>
 
   <script src="i18n.js"></script>
   <script src="crypto.js"></script>

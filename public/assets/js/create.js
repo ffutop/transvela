@@ -16,6 +16,17 @@
     window.i18n.setLang(window.i18n.getLang() === 'zh' ? 'en' : 'zh');
   });
 
+  function setupPasswordToggle(toggleId, inputEl) {
+    const toggleBtn = document.getElementById(toggleId);
+    toggleBtn.addEventListener('click', () => {
+      const revealed = inputEl.type === 'text';
+      inputEl.type = revealed ? 'password' : 'text';
+      toggleBtn.classList.toggle('revealed', !revealed);
+      toggleBtn.setAttribute('aria-label', window.i18n.t(revealed ? 'create.showPassword' : 'create.hidePassword'));
+    });
+  }
+  setupPasswordToggle('passwordToggle', passwordInput);
+
   heroCta.addEventListener('click', () => {
     document.getElementById('createCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
     urlInput.focus();
@@ -98,8 +109,14 @@
     }
   });
 
+  function resetPasswordVisibility(toggleId, inputEl) {
+    inputEl.type = 'password';
+    document.getElementById(toggleId).classList.remove('revealed');
+  }
+
   createAnotherBtn.addEventListener('click', () => {
     form.reset();
+    resetPasswordVisibility('passwordToggle', passwordInput);
     form.classList.remove('hidden');
     resultBox.classList.add('hidden');
     clearError();

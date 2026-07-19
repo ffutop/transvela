@@ -3,36 +3,39 @@
 (function () {
   const DICT = {
     zh: {
-      brand: { name: 'Transvela', tagline: '给一条链接，多一步确认' },
+      brand: { name: 'Transvela', tagline: '给链接多一步确认' },
       nav: { langToggle: 'EN' },
       hero: {
         eyebrow: '轻量链接门禁',
-        headline: '分享链接前，先加一层郑重',
+        headline: '链接打开前，先经一道郑重的确认',
         subheadline:
-          '给文档、方案或私人内容加一道口令确认，让它更妥善地到达对的人。',
+          '给文档、方案或私人内容加一道密码，让它更妥善地送到该收到的人手里。',
         feature1: '无需注册',
-        feature2: '本地处理口令',
+        feature2: '本地处理密码',
         feature3: '三步完成',
         cta: '立即创建专属链接',
         stepsTitle: '怎么用',
         step1: '粘贴你要分享的原始链接',
-        step2: '设置密码，可选一句提示词',
+        step2: '设置密码，提示词选填',
         step3: '复制生成的短链接，发给对方'
       },
       create: {
+        cardTag: '免注册',
         title: '创建专属口令链接',
-        subtitle: '填写链接与口令，即刻生成。',
+        subtitle: '填写链接和密码，即刻生成。',
         urlLabel: '原始链接',
         urlPlaceholder: '粘贴你要分享的链接，例如 https://...',
         passwordLabel: '设置密码',
         passwordPlaceholder: '对方需要输入这个密码才能打开链接',
+        showPassword: '显示密码',
+        hidePassword: '隐藏密码',
         hintLabel: '密码提示（可选）',
         hintPlaceholder: '方便对方或你自己回忆密码的一句话',
-        disclaimer: '这是一个门禁提醒，无法防止密码正确后的转发。请不要用于传播违法或侵权内容。',
+        disclaimer: '这是一道门禁提醒，不是安全保证——无法防止对方在输入密码后把原始链接转发出去。请不要用于传播违法或侵权内容。',
         submitBtn: '生成专属链接',
         submitting: '正在生成…',
         resultTitle: '链接已生成',
-        resultHint: '请自行妥善保存密码，我们不存储密码，无法为你找回。',
+        resultHint: '请自行妥善保存密码，我们不存储密码，也无法帮你找回。',
         copyBtn: '复制链接',
         copied: '已复制',
         createAnother: '再创建一条',
@@ -43,27 +46,32 @@
       verify: {
         eyebrow: '专属内容',
         title: '这条链接需要密码',
-        subtitle: '分享者为内容设置了一道确认，请输入你收到的口令继续。',
+        subtitle: '分享者为内容设置了一道确认，请输入收到的密码继续。',
         hintPrefix: '提示：',
         passwordLabel: '请输入密码',
         passwordPlaceholder: '密码',
         submitBtn: '确认',
         verifying: '正在验证…',
-        wrongPassword: '口令不正确，请重试',
-        invalidTarget: '目标链接不合法，已阻止跳转',
-        redirecting: '验证成功，正在跳转…'
+        loading: '正在为你准备这条内容…',
+        wrongPassword: '密码不正确，请重试',
+        invalidTarget: '目标链接格式无效，已阻止跳转',
+        redirecting: '验证成功，正在跳转…',
+        networkErrorTitle: '连接好像断了',
+        networkError: '请检查网络连接后重试',
+        retryBtn: '重试'
       },
       notFound: {
         title: '链接不存在或已失效',
-        message: '请向分享者确认链接是否正确，或对方是否已重新生成过。',
+        message: '请向分享者确认链接是否正确，或请对方重新发一条给你。',
         backLink: '创建我自己的链接'
       },
       extension: {
         tagline: '为当前页面加一道确认',
-        title: '创建口令链接',
-        subtitle: '当前页面已自动带入，设置口令即可分享。'
+        title: '创建专属口令链接',
+        subtitle: '当前页面已自动带入，设置密码即可分享。',
+        subtitleFromLink: '已带入你右键点击的链接，设置密码即可分享。'
       },
-      footer: { privacy: '无需注册', promise: '原始链接与口令不会以明文保存' }
+      footer: { privacy: '无需注册', promise: '原始链接和密码不会以明文保存' }
     },
     en: {
       brand: { name: 'Transvela', tagline: 'One more step before a link opens' },
@@ -83,12 +91,15 @@
         step3: 'Copy the short link and send it over'
       },
       create: {
+        cardTag: 'No sign-up',
         title: 'Create a password-gated link',
         subtitle: 'Add your link and password. We’ll handle the rest.',
         urlLabel: 'Original link',
         urlPlaceholder: 'Paste the link you want to share, e.g. https://...',
         passwordLabel: 'Set a password',
         passwordPlaceholder: 'The recipient must enter this to open the link',
+        showPassword: 'Show password',
+        hidePassword: 'Hide password',
         hintLabel: 'Password hint (optional)',
         hintPlaceholder: 'A short reminder for the recipient or yourself',
         disclaimer: 'This is a gentle gate, not a security guarantee — it cannot stop the link from being forwarded after the password is entered. Do not use it to distribute illegal or infringing content.',
@@ -112,9 +123,13 @@
         passwordPlaceholder: 'Password',
         submitBtn: 'Continue',
         verifying: 'Verifying…',
+        loading: 'Checking this link…',
         wrongPassword: 'Incorrect password, please try again',
         invalidTarget: 'The target link is invalid, redirect blocked',
-        redirecting: 'Verified, redirecting…'
+        redirecting: 'Verified, redirecting…',
+        networkErrorTitle: 'Connection lost',
+        networkError: 'Looks like the network dropped. Check your connection and try again.',
+        retryBtn: 'Retry'
       },
       notFound: {
         title: 'This link does not exist or has expired',
@@ -123,8 +138,9 @@
       },
       extension: {
         tagline: 'Add a check to this page',
-        title: 'Create a gated link',
-        subtitle: 'This page is ready. Set a password to share it.'
+        title: 'Create a password-gated link',
+        subtitle: 'This page is ready. Set a password to share it.',
+        subtitleFromLink: 'The link you right-clicked is ready. Set a password to share it.'
       },
       footer: { privacy: 'No sign-up', promise: 'Links and passwords are never stored in plain text' }
     }
@@ -166,6 +182,10 @@
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
       el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+      const key = el.classList.contains('revealed') ? 'create.hidePassword' : el.getAttribute('data-i18n-aria');
+      el.setAttribute('aria-label', t(key));
     });
     document.querySelectorAll('[data-i18n-toggle]').forEach((el) => {
       el.textContent = t('nav.langToggle');

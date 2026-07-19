@@ -12,10 +12,22 @@
   const copyBtn = document.getElementById('copyBtn');
   const createAnotherBtn = document.getElementById('createAnotherBtn');
   const langToggle = document.getElementById('langToggle');
+  const subtitleEl = document.querySelector('[data-i18n="extension.subtitle"]');
 
   langToggle.addEventListener('click', () => {
     window.i18n.setLang(window.i18n.getLang() === 'zh' ? 'en' : 'zh');
   });
+
+  function setupPasswordToggle(toggleId, inputEl) {
+    const toggleBtn = document.getElementById(toggleId);
+    toggleBtn.addEventListener('click', () => {
+      const revealed = inputEl.type === 'text';
+      inputEl.type = revealed ? 'password' : 'text';
+      toggleBtn.classList.toggle('revealed', !revealed);
+      toggleBtn.setAttribute('aria-label', window.i18n.t(revealed ? 'create.showPassword' : 'create.hidePassword'));
+    });
+  }
+  setupPasswordToggle('passwordToggle', passwordInput);
 
   function showError(key) {
     errorBox.textContent = window.i18n.t(key);
@@ -35,14 +47,22 @@
     }
   }
 
+  function setSubtitle(key) {
+    if (!subtitleEl) return;
+    subtitleEl.setAttribute('data-i18n', key);
+    subtitleEl.textContent = window.i18n.t(key);
+  }
+
   async function prefillUrl() {
     const { pendingUrl } = await chrome.storage.session.get('pendingUrl');
     if (pendingUrl) {
       urlInput.value = pendingUrl;
       chrome.storage.session.remove('pendingUrl');
+      setSubtitle('extension.subtitleFromLink');
       return;
     }
 
+    setSubtitle('extension.subtitle');
     const isStandalone = new URLSearchParams(location.search).get('standalone') === '1';
     if (isStandalone) return;
 
@@ -111,8 +131,14 @@
     }
   });
 
+  function resetPasswordVisibility(toggleId, inputEl) {
+    inputEl.type = 'password';
+    document.getElementById(toggleId).classList.remove('revealed');
+  }
+
   createAnotherBtn.addEventListener('click', () => {
     form.reset();
+    resetPasswordVisibility('passwordToggle', passwordInput);
     form.classList.remove('hidden');
     resultBox.classList.add('hidden');
     clearError();
