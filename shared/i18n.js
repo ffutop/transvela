@@ -71,7 +71,7 @@
         subtitle: '当前页面已自动带入，设置密码即可分享。',
         subtitleFromLink: '已带入你右键点击的链接，设置密码即可分享。'
       },
-      footer: { privacy: '无需注册', promise: '原始链接和密码不会以明文保存' }
+      footer: { privacy: '无需注册', promise: '原始链接和密码不会以明文保存', privacyPolicy: '隐私权说明' }
     },
     en: {
       brand: { name: 'Transvela', tagline: 'One more step before a link opens' },
@@ -142,7 +142,7 @@
         subtitle: 'This page is ready. Set a password to share it.',
         subtitleFromLink: 'The link you right-clicked is ready. Set a password to share it.'
       },
-      footer: { privacy: 'No sign-up', promise: 'Links and passwords are never stored in plain text' }
+      footer: { privacy: 'No sign-up', promise: 'Links and passwords are never stored in plain text', privacyPolicy: 'Privacy Policy' }
     }
   };
 

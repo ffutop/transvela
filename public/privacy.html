@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>隐私权说明 - Transvela</title>
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-lockup" href="/" aria-label="Transvela home">
+      <div class="brand">Transvela</div>
+      <div class="tagline" data-i18n="brand.tagline"></div>
+    </a>
+  </header>
+
+  <main class="policy-layout">
+    <article class="card policy-card">
+      <span class="card-tag">Privacy</span>
+      <div class="card-heading">
+        <h1>隐私权说明</h1>
+        <p>最后更新：2026-07-19</p>
+      </div>
+
+      <section class="policy-section">
+        <h2>Transvela 的用途</h2>
+        <p>Transvela 用于把用户提交的网页链接转换为需要密码才能打开的短链接。用户可以设置密码和可选的密码提示，接收方需要输入密码后才会跳转到原始链接。</p>
+        <p class="policy-en">Transvela converts a web page or selected link into a short link that requires a password before it opens. The creator can set a password and an optional hint, and the recipient must enter the password before being redirected to the original link.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>我们处理哪些数据</h2>
+        <p>创建短链接时，浏览器会在本地使用用户设置的密码加密原始链接，然后把加密后的密文发送到服务器保存。用户填写的密码提示如果存在，也会随短链接一起保存，用于展示给接收方。</p>
+        <p>验证短链接时，浏览器会请求对应短码的加密数据和密码提示，并在本地使用接收方输入的密码尝试解密。</p>
+        <p class="policy-en">When a short link is created, the original link is encrypted locally in the user's browser with the password provided by the user. The encrypted data is then sent to the server for storage. If the user provides a password hint, that hint is also stored and shown to the recipient.</p>
+        <p class="policy-en">When a recipient opens a Transvela short link, the browser fetches the encrypted data and optional hint, then attempts to decrypt the original link locally with the password entered by the recipient.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>我们不收集哪些数据</h2>
+        <ul>
+          <li>我们不保存用户设置的密码。</li>
+          <li>我们不以明文保存原始链接。</li>
+          <li>我们不要求用户注册账号。</li>
+          <li>我们不出售用户数据，也不把数据用于广告定向。</li>
+        </ul>
+        <p class="policy-en">We do not store user passwords. We do not store original links in plain text. We do not require account registration. We do not sell user data or use it for advertising targeting.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>本地加密</h2>
+        <p>原始链接的加密和解密在用户浏览器中完成。服务器保存的是加密后的内容，因此 Transvela 无法帮助用户找回密码，也无法在不知道密码的情况下读取原始链接。</p>
+        <p class="policy-en">Encryption and decryption happen in the user's browser. The server stores encrypted content, so Transvela cannot recover a password or read the original link without the password.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>浏览器扩展权限</h2>
+        <p>Transvela 浏览器扩展使用权限来提供明确的单一功能：为当前页面或右键选中的链接生成密码保护短链接。扩展不会读取网页正文内容，也不会持续追踪用户浏览历史。</p>
+        <p class="policy-en">The browser extension uses permissions only to provide its single purpose: creating password-protected short links from the current page or a link selected through the context menu. The extension does not read page content and does not continuously track browsing history.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>数据保留</h2>
+        <p>短链接数据会保存在 Transvela 服务端，用于让接收方访问和验证。当前版本不提供账号后台或自助删除入口；如果你需要处理已创建的链接，可以通过下方联系方式与我们沟通。</p>
+        <p class="policy-en">Short-link data is stored on the Transvela server so recipients can access and verify links. The current version does not provide an account dashboard or self-service deletion flow. If you need help with a link you created, contact us using the address below.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>重要限制</h2>
+        <p>Transvela 提供的是轻量级链接门禁，不是完整的权限管理系统。它无法阻止接收方在输入密码后复制、截图或继续转发原始链接。请不要使用 Transvela 传播违法、侵权或高度敏感内容。</p>
+        <p class="policy-en">Transvela is a lightweight link gate, not a full access-control or enterprise security system. It cannot prevent a recipient from copying, screenshotting, or forwarding the original link after entering the password. Do not use Transvela to distribute illegal, infringing, or highly sensitive content.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>联系我们</h2>
+        <p>如果你对隐私权说明或数据处理方式有疑问，请联系：<a href="mailto:transvela@ffutop.com">transvela@ffutop.com</a>。</p>
+        <p class="policy-en">If you have questions about this privacy notice or how data is handled, contact us at <a href="mailto:transvela@ffutop.com">transvela@ffutop.com</a>.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <a href="/">返回首页 / Back home</a>
+  </footer>
+
+  <script src="/assets/js/i18n.js"></script>
+</body>
+</html>

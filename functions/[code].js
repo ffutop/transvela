@@ -1,5 +1,10 @@
 export async function onRequestGet({ request, params, env }) {
   const code = params.code;
+  const reservedPaths = new Set(['privacy']);
+  if (reservedPaths.has(code.toLowerCase())) {
+    return env.ASSETS.fetch(request);
+  }
+
   if (!/^[a-zA-Z0-9]{4,32}$/.test(code)) {
     return env.ASSETS.fetch(request);
   }

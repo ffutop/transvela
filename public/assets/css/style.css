@@ -258,6 +258,24 @@ button.primary:disabled { opacity: .55; cursor: default; }
 .hint-box { margin-bottom: 18px; padding: 12px 14px; border-radius: var(--radius-comfortable); background: var(--coral-soft); color: var(--coral-dark); font-size: 13px; font-weight: 600; }
 .status-text { margin-top: 12px; text-align: center; color: var(--ink-soft); font-size: 14px; }
 .site-footer { width: 100%; max-width: 1200px; display: flex; justify-content: center; gap: 8px; color: var(--ink-soft); font-size: 12px; }
+.site-footer a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.site-footer a:hover { color: var(--ink); }
+
+.policy-layout {
+  width: 100%;
+  max-width: 860px;
+  flex: 1;
+  padding: 48px 0 88px;
+}
+.policy-card { max-width: none; }
+.policy-card .card-heading h1 { margin: 0; font-size: 32px; font-weight: 800; line-height: 1.12; letter-spacing: -.02em; }
+.policy-section { margin-top: 28px; }
+.policy-section h2 { margin: 0 0 10px; font-size: 18px; font-weight: 800; line-height: 1.25; }
+.policy-section p { margin: 0 0 12px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
+.policy-section p:last-child { margin-bottom: 0; }
+.policy-section .policy-en { color: #6f675c; }
+.policy-section ul { margin: 0; padding-left: 20px; color: var(--ink-soft); font-size: 14px; line-height: 1.7; }
+.policy-section a { color: var(--ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 #loadingCard { text-align: center; }
 #loadingCard .loading-text { margin: 16px 0 0; }
