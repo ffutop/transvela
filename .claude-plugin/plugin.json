@@ -1,0 +1,18 @@
+{
+  "name": "transvela",
+  "description": "Create and resolve Transvela password-protected short links. AES-GCM encryption/decryption runs locally via Node — passwords and plaintext URLs never leave the machine.",
+  "version": "0.1.0",
+  "author": {
+    "name": "ffutop",
+    "email": "lijinling.me@icloud.com"
+  },
+  "homepage": "https://github.com/ffutop/transvela",
+  "repository": "https://github.com/ffutop/transvela",
+  "keywords": [
+    "transvela",
+    "short-link",
+    "password-protected",
+    "aes-gcm",
+    "client-side-encryption"
+  ]
+}
